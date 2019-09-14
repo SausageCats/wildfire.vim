@@ -372,6 +372,7 @@ endfu
 fu s:get_char()
     let char = strtrans(getchar())
         if char == 13 | return "<CR>"
+    elseif char == 241 || char ==# strtrans("\<M-q>") | return "<ESC>" " 2019/09/14
     elseif char == 27 | return "<ESC>"
     elseif char == 9 | return "<TAB>"
     elseif char >= 1 && char <= 26 | return "<C-" . nr2char(char+64) . ">"
